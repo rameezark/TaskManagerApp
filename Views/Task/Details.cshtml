@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TaskDetailsModel
+<div class="container p-3 my-3 border">
+    <h1>Task Details</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.TaskName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Task.TaskName)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.Description)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Task.Description)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Task.DeadLine)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Task.DeadLine)
+        </dd>
+        <dt class="col-sm-2">
+            Uploaded Image
+        </dt>
+        <dd class="col-sm-10">
+            <img decoding="async" src="@("~/image/"+Model.Image.ImageName)" asp-append-version="true" width="250px" height="250px" />
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Edit" class="btn btn-outline-primary" asp-route-taskId="@Model.Task.Id">Edit</a>
+        <a class="btn btn-danger" asp-action="Index">Back</a>
+    </div>
+</div>
